@@ -1,0 +1,49 @@
+{
+  "name": "easy_valid",
+  "version": "0.0.1",
+  "description": "js validation",
+  "author": "zoe.yuan",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "module": "./dist/easy_valid.es.js",
+  "unpkg": "./dist/easy_valid.min.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/easy_valid.js",
+      "require": "./dist/easy_valid.cjs"
+    }
+  },
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "sideEffects": false,
+  "buildOptions": {
+    "formats": [
+      "esm-bundler",
+      "cjs"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.0",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.2",
+    "vite-plugin-dts": "^2.3.0",
+    "vite-plugin-minify": "^1.5.2"
+  },
+  "peerDependencies": {
+    "vite": "*"
+  },
+  "scripts": {
+    "dev": "vite --config ./build/vite.lib.config.js",
+    "build": "rimraf dist && tsc && vite build --config ./build/vite.lib.config.js && mv dist/src dist/types",
+    "preview": "vite preview --config ./build/vite.lib.config.js"
+  },
+  "keywords": [
+    "vue"
+  ]
+}
