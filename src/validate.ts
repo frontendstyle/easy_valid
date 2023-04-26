@@ -7,11 +7,8 @@ const hasChanged = (value: any, oldValue: any): boolean => !Object.is(value, old
 const hasOwnProperty = Object.prototype.hasOwnProperty
 const hasOwn = (target: object, key: string | symbol): boolean => hasOwnProperty.call(target, key)
 
-const camelizeRE = /-(\w)/g
-const hyphenateRE = /\B([A-Z])/g
-
-const camelize = (str: string): string => str.replace(camelizeRE, (_, c) => (c ? c.toUpperCase() : ''))
-const hyphenate = (str: string): string => str.replace(hyphenateRE, '-$1').toLowerCase()
+const camelize = (str: string): string => str.replace(/-(\w)/g, (_, c) => (c ? c.toUpperCase() : ''))
+const hyphenate = (str: string): string => str.replace(/\B([A-Z])/g, '-$1').toLowerCase()
 const capitalize = (str: string): string => str.charAt(0).toUpperCase() + str.slice(1)
 
 export { isObject, isString, isFunction, isArray, hasChanged, hasOwn, camelize, hyphenate, capitalize }
